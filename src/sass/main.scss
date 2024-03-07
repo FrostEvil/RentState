@@ -588,18 +588,17 @@
 				left: -4.8rem;
 				border-left: 1px solid $secondary;
 				overflow: hidden;
-
-				&::after {
-					content: "";
-					position: absolute;
-					width: 3.6rem;
-					height: 3.6rem;
-					left: -6.6rem;
-					top: 50%;
-					transform: translateY(-50%);
-					border-radius: 2.8rem;
-					background-color: $primary;
-				}
+			}
+			&::after {
+				content: "";
+				position: absolute;
+				width: 3.6rem;
+				height: 3.6rem;
+				left: -6.6rem;
+				top: 50%;
+				transform: translateY(-50%);
+				border-radius: 2.8rem;
+				background-color: $primary;
 			}
 		}
 	}
