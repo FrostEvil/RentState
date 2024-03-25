@@ -1,25 +1,47 @@
 const renovationsAll = document.querySelectorAll(".renovations__examples");
 
 renovationsAll.forEach((el) =>
-	el.addEventListener("mouseover", () => {
-		const dataImg = el.getAttribute("data-img");
+	el.addEventListener("pointerdown", (e) => {
+		if (e.pointerType === "touch") {
+			const dataImg = el.getAttribute("data-img");
 
-		el.children[0].textContent = "PO";
-		el.children[1].children[0].setAttribute(
-			"src",
-			`./dist/img/after_${dataImg}.webp`
-		);
-	})
-);
-renovationsAll.forEach((el) =>
-	el.addEventListener("mouseleave", () => {
-		const dataImg = el.getAttribute("data-img");
+			if (el.children[0].textContent === "PRZED") {
+				el.children[0].textContent = "PO";
+				el.children[1].children[0].setAttribute(
+					"src",
+					`./dist/img/after_${dataImg}.webp`
+				);
+			} else {
+				el.children[0].textContent = "PRZED";
+				el.children[1].children[0].setAttribute(
+					"src",
+					`./dist/img/before_${dataImg}.webp`
+				);
+			}
+		} else {
+			renovationsAll.forEach((el) =>
+				el.addEventListener("mouseover", () => {
+					const dataImg = el.getAttribute("data-img");
 
-		el.children[0].textContent = "PRZED";
-		el.children[1].children[0].setAttribute(
-			"src",
-			`./dist/img/before_${dataImg}.webp`
-		);
+					el.children[0].textContent = "PO";
+					el.children[1].children[0].setAttribute(
+						"src",
+						`./dist/img/after_${dataImg}.webp`
+					);
+				})
+			);
+			renovationsAll.forEach((el) =>
+				el.addEventListener("mouseleave", () => {
+					const dataImg = el.getAttribute("data-img");
+
+					el.children[0].textContent = "PRZED";
+					el.children[1].children[0].setAttribute(
+						"src",
+						`./dist/img/before_${dataImg}.webp`
+					);
+				})
+			);
+		}
 	})
 );
 
@@ -80,4 +102,3 @@ const slider = function () {
 };
 
 slider();
-
